@@ -9,8 +9,10 @@ class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
+    // this exposes the query to the user
+    pageProps.query = ctx.query;
+    return { pageProps };
   }
-
   render() {
     const { Component, apollo, pageProps } = this.props;
 
@@ -25,4 +27,5 @@ class MyApp extends App {
     );
   }
 }
+
 export default withData(MyApp);

@@ -5,6 +5,7 @@ import ItemStyles from "./styles/ItemStyles";
 import PriceTag from "./styles/PriceTag";
 import Link from "next/link";
 import formatMoney from "../lib/formatMoney";
+import DeleteItem from "./DeleteItem";
 
 export default class Item extends Component {
   static propTypes = {
@@ -33,7 +34,7 @@ export default class Item extends Component {
         <div className="buttonList">
           <Link
             href={{
-              pathname: "/item",
+              pathname: "/update",
               query: {
                 id: item.id
               }
@@ -42,7 +43,7 @@ export default class Item extends Component {
             <a>Edit</a>
           </Link>
           <button>Add to cart</button>
-          <button>Delete</button>
+          <DeleteItem id={item.id}>Delete this item</DeleteItem>
         </div>
       </ItemStyles>
     );
