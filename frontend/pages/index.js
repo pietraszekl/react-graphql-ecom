@@ -1,9 +1,3 @@
-import Items from "../components/Items";
-
-const Home = props => (
-  <div>
-    <Items />
-  </div>
-);
-
-export default Home;
+export default function IndexPage() {
+  return <div>Helo</div>;
+}
