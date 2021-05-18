@@ -1,3 +1,5 @@
+import CreateProduct from '../components/CreateProduct';
+
 export default function OrderPage() {
-  return <div>Order</div>;
+  return <CreateProduct />;
 }

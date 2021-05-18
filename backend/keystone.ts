@@ -1,13 +1,13 @@
 import { createAuth } from '@keystone-next/auth';
 import { config, createSchema } from '@keystone-next/keystone/schema';
-import 'dotenv/config';
 import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
-import { User } from './schemas/User';
-import { Product } from './schemas/Product';
 import { ProductImage } from './schemas/ProductImage';
+import { Product } from './schemas/Product';
+import { User } from './schemas/User';
+import 'dotenv/config';
 import { insertSeedData } from './seed-data';
 
 const databaseURL =
@@ -41,7 +41,10 @@ export default withAuth(
       adapter: 'mongoose',
       url: databaseURL,
       async onConnect(keystone) {
-        await insertSeedData(keystone);
+        console.log('Connected to the database!');
+        if (process.argv.includes('--seed-data')) {
+          await insertSeedData(keystone);
+        }
       },
     },
     lists: createSchema({
