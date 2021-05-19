@@ -1,5 +1,5 @@
 import CreateProduct from '../components/CreateProduct';
 
-export default function OrderPage() {
+export default function SellPage() {
   return <CreateProduct />;
 }
