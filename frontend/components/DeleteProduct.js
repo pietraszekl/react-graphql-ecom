@@ -31,7 +31,6 @@ export default function DeleteProduct({ id, children }) {
       disable={loading}
       onClick={() => {
         if (window.confirm('Are you sure?')) {
-          console.log('Remove');
           deleteProduct().catch((err) => alert(err.message));
         }
       }}

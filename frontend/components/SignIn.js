@@ -36,7 +36,6 @@ export default function SignIn() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    console.log(inputs);
     await signin();
     resetForm();
   }
