@@ -4,6 +4,7 @@ import {
   withItemData,
   statelessSessions,
 } from '@keystone-next/keystone/session';
+import { extendGraphqlSchema } from './mutations';
 import { ProductImage } from './schemas/ProductImage';
 import { Product } from './schemas/Product';
 import { User } from './schemas/User';
@@ -64,8 +65,9 @@ export default withAuth(
       ProductImage,
       CartItem,
     }),
+    extendGraphqlSchema,
     ui: {
-      // Show the UI only for poeple who pass this test
+      // Show the UI only for people who pass this test
       isAccessAllowed: ({ session }) =>
         // console.log(session);
         !!session?.data,
@@ -74,5 +76,5 @@ export default withAuth(
       // GraphQL Query
       User: 'id name email',
     }),
-  }),
+  })
 );
